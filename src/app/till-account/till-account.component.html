@@ -7,15 +7,19 @@
 
     <body  class="cody">
         <h3>Balanced Till from Previous Day: <span style="margin-left: 10px;"> ₦ 0.00 </span></h3> 
-        
-        <h3> Till Total Amount: <span style="margin-left: 10px;"> ₦ {{tillTotal | number}} </span></h3> 
+        <div>
+        <h3> Till Total Amount: <span style="margin-left: 10px;"> ₦ {{tillTotal | number}} </span></h3>
+    </div> 
+    <div *ngIf="quantities > 1000000">
+        <h4>Please maximum input is ₦ 1,000,000 </h4>
+    </div>
         </body>
         <div  class="sody">
             
             <h2>Request Cash from Vault <small style="font-size: small;">(max:₦ 1,000,000)</small></h2>  
             <br>
             <div style="font-size: larger;">
-                    <b> Amount: </b> <input  style="height: 20px; width: 100px;" type="number" class="form-control" [value]="quantities" >
+                    <b> Amount: </b> <input  style="height: 20px; width: 100px;" type="number" class="form-control" [value]="quantities"  [(ngModel)]="quantities" >
            </div>
 
            <div>

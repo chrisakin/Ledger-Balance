@@ -7,6 +7,7 @@ import { VaultHeaderComponent } from './vault-header/vault-header.component';
 import { TillAccountComponent } from './till-account/till-account.component';
 import { StanbicComponent } from './stanbic/stanbic.component';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
    
   ],
   providers: [],

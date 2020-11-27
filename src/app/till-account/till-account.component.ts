@@ -7,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TillAccountComponent implements OnInit {
   tillTotal: any = 0;
-  quantities: any = 1000000;
+  quantities: any;
   btnDisabled = false;
 
   constructor() { }
 
   ngOnInit() {
    this.tillTotal
+   
   }
 
   alert(){
