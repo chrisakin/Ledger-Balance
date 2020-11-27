@@ -1,0 +1,25 @@
+<br><br><br>
+
+<h3 class="sody" style="color: blue; margin-left: 30px;"> Hello!!!. Welcome Back Mrs Blessing</h3>
+<header>
+    <h1 class="vault">Till Account</h1>
+    </header>
+
+    <body  class="cody">
+        <h3>Balanced Till from Previous Day: <span style="margin-left: 10px;"> ₦ 0.00 </span></h3> 
+        
+        <h3> Till Total Amount: <span style="margin-left: 10px;"> ₦ {{tillTotal | number}} </span></h3> 
+        </body>
+        <div  class="sody">
+            
+            <h2>Request Cash from Vault <small style="font-size: small;">(max:₦ 1,000,000)</small></h2>  
+            <br>
+            <div style="font-size: larger;">
+                    <b> Amount: </b> <input  style="height: 20px; width: 100px;" type="number" class="form-control" [value]="quantities" >
+           </div>
+
+           <div>
+               <h4>Request Approval from Head of Operations (Mr Olumide): </h4> 
+               <button style="background-color: khaki;" (click)="request()" [disabled]="btnDisabled" >Send Request</button>
+           </div>
+        </div>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BlessingLedger"
+    }
+  },
+  "defaultProject": "BlessingLedger",
+  "cli": {
+    "analytics": false
+  }
 }

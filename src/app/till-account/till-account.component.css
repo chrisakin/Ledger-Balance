@@ -1,0 +1,68 @@
+.vault{
+    background-color: khaki;
+   min-height: 10vh;
+  margin-left: 80px;
+  margin-right: 1000px;
+  margin-top: 50px;
+  padding-bottom: 20px;
+  display: flex !important;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   color: black;
+ }
+ 
+ .cody{
+     margin-left: 80px;
+     margin-top: 5px;
+     margin-bottom: 20px;
+     background-color: aquamarine;
+     margin-right: 1000px;
+     padding-left: 50px;
+     padding-top: 50px;
+     padding-bottom: 50px;
+ }
+
+ .sody{
+    margin-left: 80px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: white;
+    margin-right: 1000px;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+ 
+ 
+ @media screen and (max-width:992px) {
+     .cody {
+         
+         margin-right:0px;
+         padding-left: 20px;
+         margin-left: 0px;
+         margin-bottom: 0px;
+     }
+
+     .sody {
+         
+        margin-right:0px;
+        padding-left: 20px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+    }
+   }
+   
+   @media screen and (max-width:992px) {
+     .vault {
+         
+         margin-right:0px;
+         padding-left: 20px;
+         margin-left: 0px;
+         margin-top: 0px;
+         margin-bottom: 0px;
+     }
+   }
+   
+   
+   
