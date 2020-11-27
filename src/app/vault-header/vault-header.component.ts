@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuantityService } from '../quantity.service';
 
 @Component({
   selector: 'app-vault-header',
@@ -6,14 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vault-header.component.css']
 })
 export class VaultHeaderComponent implements OnInit {
-  total: any = 5000000;
-  zero = this.total - this.total;
+  quantities: any = 1000000;
+  vaultTotal: any = 5000000;
+  total: any = this.vaultTotal - this.quantities
+  
+  
+  zero = this.vaultTotal - this.vaultTotal;
+ 
   btnDisabled = false;
-  constructor() { }
+  constructor(private quantityService: QuantityService,) { }
 
-  ngOnInit() {
-     
+  
+
+  async ngOnInit() {
+    //this.quantityService.currentQuantity.subscribe(quantities => this.quantities = quantities);
+  
   }
+
+ 
 
   approve(){
     window.alert("Balance moved to Stanbic Ledger Account")

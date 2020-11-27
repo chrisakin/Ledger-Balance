@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stanbic.component.css']
 })
 export class StanbicComponent implements OnInit {
-  total;
+  total: any = 4000000;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output,Input } from '@angular/core';
+import { QuantityService } from '../quantity.service';
 
 @Component({
   selector: 'app-till-account',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./till-account.component.css']
 })
 export class TillAccountComponent implements OnInit {
+  @Input() quantities: any = [];
+@Output()  quantityChanged = new EventEmitter<any>();
+
   tillTotal: any = 0;
-  quantities: any;
+ 
   btnDisabled = false;
 
-  constructor() { }
+  constructor(private quantityService: QuantityService) { }
 
   ngOnInit() {
    this.tillTotal
@@ -30,6 +34,8 @@ export class TillAccountComponent implements OnInit {
     //this.alert()
     setTimeout(this.alert.bind(this), 2000);
     setTimeout(this.total.bind(this), 3000);
+    this.quantityChanged.emit(this.quantities);
+    this.quantityService.changeQuantity(this.quantities);
    
   
     
