@@ -1,29 +1,28 @@
-<br><br><br>
 
 <h3 class="sody" style="color: blue; margin-left: 30px;"> Hello!!!. Welcome Back Mrs Blessing</h3>
 <header>
-    <h1 class="vault">Till Account</h1>
+    <h2 class="vault">Till Account</h2>
     </header>
 
     <body  class="cody">
-        <h3>Balanced Till from Previous Day: <span style="margin-left: 10px;"> ₦ 0.00 </span></h3> 
+        <h4>Balanced Till from Previous Day: <span style="margin-left: 10px;"> ₦ 0.00 </span></h4> 
         <div>
-        <h3> Till Total Amount: <span style="margin-left: 10px;"> ₦ {{tillTotal | number}} </span></h3>
+        <h4> Till Total Amount: <span style="margin-left: 10px;"> ₦ {{tillTotal | number}} </span></h4>
     </div> 
     <div *ngIf="quantities > 1000000">
-        <h4>Please maximum input is ₦ 1,000,000 </h4>
+        <h5>Please maximum input is ₦ 1,000,000 </h5>
     </div>
         </body>
         <div  class="sody">
             
-            <h2>Request Cash from Vault <small style="font-size: small;">(max:₦ 1,000,000)</small></h2>  
+            <h3>Request Cash from Vault <small style="font-size: small;">(max:₦ 1,000,000)</small></h3>  
             <br>
-            <div style="font-size: larger;">
-                    <b> Amount: </b> <input  style="height: 20px; width: 100px;" type="number" class="form-control" [value]="quantities"  [(ngModel)]="quantities" >
+            <div>
+                    <b> Amount: </b> <input  style="height: 30px; width: 120px;" type="number" class="form-control" [value]="quantities"  [(ngModel)]="quantities" >
            </div>
-
+           <br><br>
            <div>
-               <h4>Request Approval from Head of Operations (Mr Olumide): </h4> 
+               <h5>Request Approval from Head of Operations (Mr Olumide): </h5> 
                <button style="background-color: khaki;" (click)="request()" [disabled]="btnDisabled" >Send Request</button>
            </div>
         </div>
