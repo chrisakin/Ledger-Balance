@@ -1,11 +1,11 @@
 <header>
-<h1 class="vault">VAULT</h1>
+<h2 class="vault">VAULT</h2>
 </header>
 <body class="cody">
-<h2 >Total Amount in Vault: <span style="margin-left: 10px;"> ₦  {{total | number}} </span></h2>  
+<h3 >Total Amount in Vault: <span style="margin-left: 10px;"> ₦  {{total | number}} </span></h3>  
 </body>
 
-<div class = "sody" *ngIf = "total < 5000000 && total > 0"> <h3> Hello Mr Philip (Head of Accounts) your approval is required to move the balance to Stanbic Bank </h3>
+<div class = "sody" *ngIf = "total < 5000000 && total > 0"> <h4> Hello Mr Philip (Head of Accounts) your approval is required to move the balance to Stanbic Bank </h4>
     <button style="background-color: green; margin-right: 20px; height: 40px; color: white; border: none;" (click)="approve()" [disabled]="btnDisabled" >Approve</button>
     <button style="background-color: red; height: 40px; color: white; border: none;" (click)="reject()" [disabled]="btnDisabled" >Reject</button>
 </div>
