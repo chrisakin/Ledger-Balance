@@ -18,8 +18,13 @@
             <h3>Request Cash from Vault <small style="font-size: small;">(max:₦1,000,000)</small></h3>  
             <br>
             <div>
-                    <b> Amount: </b> <input  style="height: 30px; width: 120px;" type="number" name="amount" class="form-control" [value]="amount"  [(ngModel)]="amount" >
+                    <b> Amount: </b> <input  style="height: 30px; width: 120px;" type="number" name="amount" class="form-control" [value]="amount"  [(ngModel)]="amount" required minlength="7" >
+                    
            </div>
+           <br>
+           <div *ngIf="amount > 1000000">
+            <h5 style="font-size:small; color: red;">Please maximum input is ₦ 1,000,000 </h5>
+        </div>
            <br><br>
            <div>
                <h5>Request Approval from Head of Operations (Mr Olumide): </h5> 

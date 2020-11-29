@@ -51,7 +51,9 @@ export class VaultHeaderComponent implements OnInit {
   }
 
   get totals(){
-    return (this.vaultTotal - this.realAmount.amount)
+    let totale = 0;
+    totale = (this.vaultTotal - this.realAmount.amount)
+    return totale
     
   }
   

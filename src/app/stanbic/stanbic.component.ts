@@ -34,7 +34,8 @@ export class StanbicComponent implements OnInit {
    }
  
    get totals(){
-     return this.total + this.realAmount.amount
+     
+     return this.total += this.realAmount.amount
      
    }
 }
