@@ -3,10 +3,27 @@
 <h2 class="vault">VAULT</h2>
 </header>
 <body class="cody">
-<h3 >Total Amount in Vault: <span style="margin-left: 10px;"> ₦{{total | number}} </span></h3>  
+<h4 >Total Amount at the beginning of the day: <span style="margin-left: 10px;"> ₦{{vaultTotal | number}} </span></h4> 
+<br> 
+<h4>Total Amount presently: <span style="margin-left: 10px;"> ₦{{totals | number}} </span></h4> 
 </body>
 
-<div class = "sody" *ngIf = "total < 5000000 && total > 0"> <h4> Hello Mr Philip (Head of Accounts) your approval is required to move the balance to Stanbic Bank </h4>
+<div class = "sody" *ngIf = "totals < 50000000 && totals > 0"> <h4> Hello Mr Philip (Head of Accounts) your approval is required to move the balance to Stanbic Bank </h4>
     <button style="background-color: green; margin-right: 20px; height: 40px; color: white; border: none;" (click)="approve()" [disabled]="btnDisabled" >Approve</button>
     <button style="background-color: red; height: 40px; color: white; border: none;" (click)="reject()" [disabled]="btnDisabled" >Reject</button>
 </div>
+<br><br>
+
+<div *ngIf="till" class="list-group sody row">
+    <h3> Recent Transactions</h3>
+    <div class="col-md-12">
+        Amount      ----------                 Time stamp
+    <a *ngFor="let till of till" class="list-group-item list-group-item-action">
+        ₦{{ till?.amount| number }}     ------------        {{till.createdOn}}
+    </a>
+</div>
+
+  </div>
+
+
+

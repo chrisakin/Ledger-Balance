@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AmountService } from '../amount.service';
 import { QuantityService } from '../quantity.service';
 
 @Component({
@@ -7,28 +8,71 @@ import { QuantityService } from '../quantity.service';
   styleUrls: ['./vault-header.component.css']
 })
 export class VaultHeaderComponent implements OnInit {
-  quantities: any = 1000000;
-  vaultTotal: any = 5000000;
-  total: any = this.vaultTotal - this.quantities
+
+  amount: any;
+  till: any;
+  //total = this.totals;
+  amountes: any = 1000000;
+
+  vaultTotal: any = 50000000;
+  total: any = this.vaultTotal - this.amountes
+  
   
   
   zero = this.vaultTotal - this.vaultTotal;
  
   btnDisabled = false;
-  constructor(private quantityService: QuantityService,) { }
+
+  constructor(private quantityService: QuantityService,
+              private amounts: AmountService) { }
 
   
 
   async ngOnInit() {
-    //this.quantityService.currentQuantity.subscribe(quantities => this.quantities = quantities);
-  
+    try {
+      const data = await this.amounts.get(
+        'https://blessingledger.herokuapp.com/api/till'
+      );
+      data['success']
+        ? (this.till = data['till'])
+       : console.log("Amount Gotten")
+    } catch (error) {
+      console.log("Unable to get amount");
+    }
+    
+    console.log(this.realAmount)
+    console.log(this.realAmount.amount)
+    
   }
 
- 
+  get realAmount(){
+  
+   return this.till[this.till.length - 1];
+  }
 
-  approve(){
+  get totals(){
+    return this.vaultTotal - this.realAmount.amount
+    
+  }
+
+  async approve(){
+    
     window.alert("Balance moved to Stanbic Ledger Account")
     this.total = this.zero
+
+    try {  
+    
+      const data = await this.amounts.post(
+       'https://blessingledger.herokuapp.com/api/stanbic',
+       {amount:this.totals}
+     ); 
+     data['success']
+     console.log("Money successfully transferred")
+      
+       } catch (error) {
+         console.log("Money couldnt be transferred")
+             }
+             this.btnDisabled = false;
   }
 
   reject(){

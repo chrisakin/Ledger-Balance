@@ -2,6 +2,21 @@
     <h2 class="vault">STANBIC</h2>
     </header>
     <body class="cody">
-    <h3 >Total Amount : <span style="margin-left: 10px;"> ₦{{total | number}} </span></h3>  
+    <h3 >Initial Amount : <span style="margin-left: 10px;"> ₦{{total | number}} </span></h3>
+    <br>
+    <h3 >Total Amount : <span style="margin-left: 10px;"> ₦{{totals | number}} </span></h3>  
     </body>
+
+    <div *ngIf="stanbic" class="list-group sody row">
+
+        <h3> Recent Transactions</h3>
+        <div class="col-md-12">
+             Amount      ----------                 Time stamp
+        <a *ngFor="let stanbic of stanbic" class="list-group-item list-group-item-action">
+            
+            ₦{{ stanbic?.amount| number }}  ------------         {{stanbic.createdOn}}
+        </a>
+    </div>
+    
+      </div>
     

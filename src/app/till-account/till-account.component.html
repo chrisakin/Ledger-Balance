@@ -9,7 +9,7 @@
         <div>
         <h4> Till Total Amount: <span style="margin-left: 10px;"> ₦{{tillTotal | number}} </span></h4>
     </div> 
-    <div *ngIf="quantities > 1000000">
+    <div *ngIf="amount > 1000000">
         <h5>Please maximum input is ₦ 1,000,000 </h5>
     </div>
         </body>
@@ -18,7 +18,7 @@
             <h3>Request Cash from Vault <small style="font-size: small;">(max:₦1,000,000)</small></h3>  
             <br>
             <div>
-                    <b> Amount: </b> <input  style="height: 30px; width: 120px;" type="number" class="form-control" [value]="quantities"  [(ngModel)]="quantities" >
+                    <b> Amount: </b> <input  style="height: 30px; width: 120px;" type="number" name="amount" class="form-control" [value]="amount"  [(ngModel)]="amount" >
            </div>
            <br><br>
            <div>

@@ -1,4 +1,5 @@
 import { Component, OnInit,EventEmitter, Output,Input } from '@angular/core';
+import { AmountService } from '../amount.service';
 import { QuantityService } from '../quantity.service';
 
 @Component({
@@ -7,14 +8,15 @@ import { QuantityService } from '../quantity.service';
   styleUrls: ['./till-account.component.css']
 })
 export class TillAccountComponent implements OnInit {
-  @Input() quantities: any = [];
-@Output()  quantityChanged = new EventEmitter<any>();
+  amount: any= 0;
+
 
   tillTotal: any = 0;
  
   btnDisabled = false;
 
-  constructor(private quantityService: QuantityService) { }
+  constructor(private quantityService: QuantityService,
+                private amounts: AmountService) { }
 
   ngOnInit() {
    this.tillTotal
@@ -26,16 +28,28 @@ export class TillAccountComponent implements OnInit {
   }
 
  total(){
-  this.tillTotal=this.quantities
+  this.tillTotal=this.amount
  }
 
-  request(){
+  async request(){
     this.btnDisabled = true;
     //this.alert()
     setTimeout(this.alert.bind(this), 2000);
     setTimeout(this.total.bind(this), 3000);
-    this.quantityChanged.emit(this.quantities);
-    this.quantityService.changeQuantity(this.quantities);
+   
+    try {  
+    
+     const data = await this.amounts.post(
+      'https://blessingledger.herokuapp.com/api/till',
+      {amount:this.amount}
+    ); 
+    data['success']
+    console.log("Money successfully transferred")
+     
+      } catch (error) {
+        console.log("Money couldnt be transferred")
+            }
+            this.btnDisabled = false;
    
   
     
