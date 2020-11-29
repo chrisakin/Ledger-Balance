@@ -16,10 +16,10 @@ export class VaultHeaderComponent implements OnInit {
 
   vaultTotal: any = 50000000;
   total: any = this.vaultTotal - this.amountes
+  zeta: any = 100000;
   
   
-  
-  zero = this.vaultTotal - this.vaultTotal;
+  zero = 0.00;
  
   btnDisabled = false;
 
@@ -51,14 +51,14 @@ export class VaultHeaderComponent implements OnInit {
   }
 
   get totals(){
-    return this.vaultTotal - this.realAmount.amount
+    return (this.vaultTotal - this.realAmount.amount)
     
   }
-
+  
   async approve(){
     
     window.alert("Balance moved to Stanbic Ledger Account")
-    this.total = this.zero
+    this.zeta = this.zero
 
     try {  
     

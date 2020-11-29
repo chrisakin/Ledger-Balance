@@ -5,7 +5,8 @@
 <body class="cody">
 <h4 >Total Amount at the beginning of the day: <span style="margin-left: 10px;"> ₦{{vaultTotal | number}} </span></h4> 
 <br> 
-<h4>Total Amount presently: <span style="margin-left: 10px;"> ₦{{totals | number}} </span></h4> 
+<h4 *ngIf = "zeta > 1" >Total Amount presently: <span style="margin-left: 10px;"> ₦{{totals | number}} </span></h4> 
+<h4 *ngIf = "zeta < 1" >Total Amount presently: <span style="margin-left: 10px;"> ₦{{zero}} </span></h4> 
 </body>
 
 <div class = "sody" *ngIf = "totals < 50000000 && totals > 0"> <h4> Hello Mr Philip (Head of Accounts) your approval is required to move the balance to Stanbic Bank </h4>
